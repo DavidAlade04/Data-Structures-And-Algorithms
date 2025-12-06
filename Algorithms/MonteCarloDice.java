@@ -5,25 +5,24 @@ public class MonteCarloDice {
 
     public static void main(String []args)
     {
-        Random rand = new Random();
-
-        int trials = 100_000;
-        int targetSum = 25;
+       Random rand = new Random();
+        int trials = 1_000_000;
         int count = 0;
-        //Number of Trials
+        int target = 25;
         for(int i = 0; i < trials; i++)
         {
             int sum = 0;
-            //Random Dice throws
             for(int j = 0; j < 10; j++)
             {
                 sum += rand.nextInt(6) + 1;
+
             }
-            if(sum == targetSum)
+            if(sum == target)
             {
                 count++;
             }
         }
+
         double probability = (double) count / trials;
         System.out.println(probability);
     }
